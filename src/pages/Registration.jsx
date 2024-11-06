@@ -187,8 +187,8 @@ const RegistrationForm = () => {
                 improvements. By doing this you accept the{" "}
                 <a href="#" className="text-red-500 hover:underline">
                   terms
-                </a>{" "}
-                and the{" "}
+                </a>
+                and the
                 <a href="#" className="text-red-500 hover:underline">
                   privacy policy
                 </a>

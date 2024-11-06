@@ -53,11 +53,11 @@
 //               </li>
 //               <li
 //                 className={`px-4 py-2 cursor-pointer ${
-//                   selectedTab === 'TierManagement' ? 'bg-gray-200' : 'hover:bg-gray-200'
+//                   selectedTab === 'PlanManagement' ? 'bg-gray-200' : 'hover:bg-gray-200'
 //                 }`}
-//                 onClick={() => handleTabClick('TierManagement')}
+//                 onClick={() => handleTabClick('PlanManagement')}
 //               >
-//                 Tier Management
+//                 Plan Management
 //               </li>
 //               <li
 //                 className={`px-4 py-2 cursor-pointer ${
@@ -163,14 +163,14 @@
 //               </li>
 //               <li
 //                 className={`px-4 py-2 cursor-pointer ${
-//                   selectedTab === 'TierManagement' ? 'bg-gray-200' : 'hover:bg-gray-200'
+//                   selectedTab === 'PlanManagement' ? 'bg-gray-200' : 'hover:bg-gray-200'
 //                 }`}
-//                 onClick={() => handleTabClick('TierManagement')}
+//                 onClick={() => handleTabClick('PlanManagement')}
 //               >
                 
 //                 <div className='flex gap-2'>
 //                 <img src="/tierManagementIcon.svg" alt="Icon" />
-//                 <h1>Tier Management</h1>
+//                 <h1>Plan Management</h1>
 //                 </div>
 //               </li>
 //               <li
@@ -220,7 +220,7 @@
 
 import React, { useState } from 'react';
 
-function Sidebar({ onSelectTab }) {
+function Sidebar({ onSelectTab, goBack}) {
   const [isOpen, setIsOpen] = useState(false);
   const [collapsed, setCollapsed] = useState(false); // New state for collapsing the sidebar
   const [selectedTab, setSelectedTab] = useState('Dashboard');
@@ -234,13 +234,14 @@ function Sidebar({ onSelectTab }) {
   };
 
   const handleTabClick = (tab) => {
+    goBack();
     setSelectedTab(tab);
     onSelectTab(tab);
     if (isOpen) setIsOpen(false); // Close sidebar on mobile after selecting a tab
   };
 
   return (
-    <>
+    <div className='h-screen'>
       {/* Mobile menu button */}
       <button
         className="lg:hidden p-4 text-gray-600 fixed top-0 left-0 z-50"
@@ -270,7 +271,7 @@ function Sidebar({ onSelectTab }) {
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-center mt-8 gap-2">
             <img src="/SidebarLogo.svg" alt="logo" className='h-20 w-20' onClick={toggleCollapse}/>
-            {!collapsed && <div className="text-2xl font-bold text-red-600">Customer Hub</div>}
+            {!collapsed && <div className="text-xl font-bold">Customer Hub</div>}
           </div>
           <nav className="mt-6">
             <ul>
@@ -298,13 +299,13 @@ function Sidebar({ onSelectTab }) {
               </li>
               <li
                 className={`px-4 py-2 cursor-pointer ${
-                  selectedTab === 'TierManagement' ? 'bg-gray-200' : 'hover:bg-gray-200'
+                  selectedTab === 'PlanManagement' ? 'bg-gray-200' : 'hover:bg-gray-200'
                 }`}
-                onClick={() => handleTabClick('TierManagement')}
+                onClick={() => handleTabClick('PlanManagement')}
               >
                 <div className="flex items-center gap-2">
                   <img src="/tierManagementIcon.svg" alt="Icon" />
-                  {!collapsed && <span>Tier Management</span>}
+                  {!collapsed && <span>Plan Management</span>}
                 </div>
               </li>
               <li
@@ -340,11 +341,11 @@ function Sidebar({ onSelectTab }) {
       {/* Overlay for closing the sidebar */}
       {isOpen && (
         <div
-          className="fixed inset-0 z-30 bg-black opacity-50 md:hidden"
+          className="fixed inset-0 z-30 md:hidden"
           onClick={toggleSidebar}
         ></div>
       )}
-    </>
+    </div>
   );
 }
 

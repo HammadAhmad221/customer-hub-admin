@@ -40,6 +40,7 @@ import Login from './pages/Login';
 import './index.css'
 import RegistrationForm from './pages/Registration';
 import Dashboard from './pages/Dashboard';
+import CreateEditClient from './pages/ClientPage';
 // import HomePage from './HomePage';
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/register" element={<RegistrationForm />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/client" element={<CreateEditClient />} />
         </Routes>
     </Router>
   );
