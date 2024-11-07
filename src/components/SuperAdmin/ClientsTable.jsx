@@ -253,7 +253,9 @@ function ClientsTable({ onAddNewClient }) {
       </div>
 
       {/* Table Container for Responsiveness */}
-      <div className="overflow-x-auto"> {/* Removed sm:overflow-x-visible */}
+      <div className="overflow-x-auto">
+        {" "}
+        {/* Removed sm:overflow-x-visible */}
         <table className="min-w-full bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md">
           <thead>
             <tr>
@@ -265,12 +267,18 @@ function ClientsTable({ onAddNewClient }) {
                 />
               </th>
               <th className="p-4 text-left text-gray-600 font-semibold">#</th>
-              <th className="p-4 text-left text-gray-600 font-semibold">Cover</th>
-              <th className="p-4 text-left text-gray-600 font-semibold">Name</th>
+              <th className="p-4 text-left text-gray-600 font-semibold">
+                Cover
+              </th>
+              <th className="p-4 text-left text-gray-600 font-semibold">
+                Name
+              </th>
               <th className="p-4 text-left text-gray-600 font-semibold">
                 Description
               </th>
-              <th className="p-4 text-left text-gray-600 font-semibold">Plan</th>
+              <th className="p-4 text-left text-gray-600 font-semibold">
+                Plan
+              </th>
               <th className="p-4 text-right text-gray-600 font-semibold">
                 Actions
               </th>

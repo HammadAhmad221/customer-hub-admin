@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import Sidebar from '../components/Sidebar';
-import StatsOverview from '../components/StatsOverview';
-import PlansOverview from '../components/PlansOverview';
-import ClientsTable from '../components/ClientsTable';
-import CreateEditClient from './ClientPage';
-import PlansTable from './PlanTable';
+import React, { useState } from "react";
+import Sidebar from "../../components/SuperAdmin/Sidebar";
+import StatsOverview from "../../components/SuperAdmin/StatsOverview";
+import PlansOverview from "../../components/SuperAdmin/PlansOverview";
+import ClientsTable from "../../components/SuperAdmin/ClientsTable";
+import CreateEditClient from "./ClientPage";
+import PlansTable from "./PlanTable";
 
 function Dashboard() {
-  const [selectedTab, setSelectedTab] = useState('Dashboard');
+  const [selectedTab, setSelectedTab] = useState("Dashboard");
   const [isCreatingClient, setIsCreatingClient] = useState(false);
 
   const handleAddNewClient = () => {
@@ -24,24 +24,24 @@ function Dashboard() {
     }
 
     switch (selectedTab) {
-      case 'Dashboard':
+      case "Dashboard":
         return (
           <>
             <StatsOverview />
             <PlansOverview />
           </>
         );
-      case 'ClientManagement':
+      case "ClientManagement":
         return <ClientsTable onAddNewClient={handleAddNewClient} />;
-      case 'PlanManagement':
+      case "PlanManagement":
         return (
           <div className="overflow-x-auto">
             <PlansTable />
           </div>
         );
-      case 'APIIntegrations':
+      case "APIIntegrations":
         return <div>API Integrations Content</div>;
-      case 'Settings':
+      case "Settings":
         return <div>Settings Content</div>;
       default:
         return <div>Dashboard Content</div>;
@@ -51,9 +51,19 @@ function Dashboard() {
   return (
     <div className="flex bg-gray-100 h-screen overflow-hidden">
       <Sidebar onSelectTab={setSelectedTab} goBack={handleGoBackToClientList} />
-      <div className={`${isCreatingClient ? 'pt-0' : 'pl-10 lg:pt-32 pt-10 lg:pr-16 pr-10'} flex-1 overflow-auto`}>
-        {selectedTab === 'Dashboard' && <h1 className="text-3xl font-semibold">Welcome 👋</h1>}
-        <img src="/topImage.svg" alt="image" className="absolute top-0 right-0 hidden md:block" />
+      <div
+        className={`${
+          isCreatingClient ? "pt-0" : "pl-10 lg:pt-32 pt-10 lg:pr-16 pr-10"
+        } flex-1 overflow-auto`}
+      >
+        {selectedTab === "Dashboard" && (
+          <h1 className="text-3xl font-semibold">Welcome 👋</h1>
+        )}
+        <img
+          src="/topImage.svg"
+          alt="image"
+          className="absolute top-0 right-0 hidden md:block"
+        />
         {renderContent()}
       </div>
     </div>

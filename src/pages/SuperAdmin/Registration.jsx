@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import DragAndDropFileUpload from "../components/DragAndDropFileUpload";
+import DragAndDropFileUpload from "../../components/SuperAdmin/DragAndDropFileUpload";
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({

@@ -36,11 +36,11 @@
 // export default App
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Login from './pages/Login';
+import Login from './pages/SuperAdmin/Login';
 import './index.css'
-import RegistrationForm from './pages/Registration';
-import Dashboard from './pages/Dashboard';
-import CreateEditClient from './pages/ClientPage';
+import RegistrationForm from './pages/SuperAdmin/Registration';
+import Dashboard from './pages/SuperAdmin/Dashboard';
+import CreateEditClient from './pages/SuperAdmin/ClientPage';
 // import HomePage from './HomePage';
 
 function App() {

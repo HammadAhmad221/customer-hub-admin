@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import ClientSidebar from "../components/ClientSidebar";
-import ClientInfoCard from "../components/ClientInfoCard";
-import CompanyInfo from "../components/CompanyInfo";
-import PaymentInfo from "../components/PaymentInfo";
-import PlanInfo from "../components/PlanInfo";
+import ClientSidebar from "../../components/SuperAdmin/ClientSidebar";
+import ClientInfoCard from "../../components/SuperAdmin/ClientInfoCard";
+import CompanyInfo from "../../components/SuperAdmin/CompanyInfo";
+import PaymentInfo from "../../components/SuperAdmin/PaymentInfo";
+import PlanInfo from "../../components/SuperAdmin/PlanInfo";
 
 function CreateEditClient({ goBack }) {
   const [selectedSection, setSelectedSection] = useState("CompanyInfo");

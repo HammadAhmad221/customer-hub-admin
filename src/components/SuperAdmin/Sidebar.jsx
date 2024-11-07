@@ -93,10 +93,6 @@
 
 // export default Sidebar;
 
-
-
-
-
 // import React, { useState } from 'react';
 
 // function Sidebar({ onSelectTab }) {
@@ -155,7 +151,7 @@
 //                 }`}
 //                 onClick={() => handleTabClick('ClientManagement')}
 //               >
-                
+
 //                 <div className='flex gap-2'>
 //                 <img src="/clientManagementIcon.svg" alt="Icon" />
 //                 <h1>Client Management</h1>
@@ -167,7 +163,7 @@
 //                 }`}
 //                 onClick={() => handleTabClick('PlanManagement')}
 //               >
-                
+
 //                 <div className='flex gap-2'>
 //                 <img src="/tierManagementIcon.svg" alt="Icon" />
 //                 <h1>Plan Management</h1>
@@ -179,7 +175,7 @@
 //                 }`}
 //                 onClick={() => handleTabClick('APIIntegrations')}
 //               >
-                
+
 //                 <div className='flex gap-2'>
 //                 <img src="/apiIntegrationIcon.svg" alt="Icon" />
 //                 <h1>API Integrations</h1>
@@ -191,7 +187,7 @@
 //                 }`}
 //                 onClick={() => handleTabClick('Settings')}
 //               >
-                
+
 //                 <div className='flex gap-2'>
 //                 <img src="/settings.svg" alt="Icon" />
 //                 <h1>Settings</h1>
@@ -218,12 +214,12 @@
 
 // export default Sidebar;
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-function Sidebar({ onSelectTab, goBack}) {
+function Sidebar({ onSelectTab, goBack }) {
   const [isOpen, setIsOpen] = useState(false);
   const [collapsed, setCollapsed] = useState(false); // New state for collapsing the sidebar
-  const [selectedTab, setSelectedTab] = useState('Dashboard');
+  const [selectedTab, setSelectedTab] = useState("Dashboard");
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -241,7 +237,7 @@ function Sidebar({ onSelectTab, goBack}) {
   };
 
   return (
-    <div className='h-screen'>
+    <div className="h-screen">
       {/* Mobile menu button */}
       <button
         className="lg:hidden p-4 text-gray-600 fixed top-0 left-0 z-50"
@@ -263,23 +259,32 @@ function Sidebar({ onSelectTab, goBack}) {
       {/* Sidebar */}
       <div
         className={`fixed lg:static top-0 left-0 h-full ${
-          collapsed ? 'w-14' : 'w-64'
+          collapsed ? "w-14" : "w-64"
         } bg-white shadow-md transition-transform transform z-40 ${
-          isOpen ? 'translate-x-0' : '-translate-x-full'
+          isOpen ? "translate-x-0" : "-translate-x-full"
         } lg:translate-x-0`}
       >
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-center mt-8 gap-2">
-            <img src="/SidebarLogo.svg" alt="logo" className='h-20 w-20' onClick={toggleCollapse}/>
-            {!collapsed && <div className="text-xl font-bold">Customer Hub</div>}
+            <img
+              src="/SidebarLogo.svg"
+              alt="logo"
+              className="h-20 w-20"
+              onClick={toggleCollapse}
+            />
+            {!collapsed && (
+              <div className="text-xl font-bold">Customer Hub</div>
+            )}
           </div>
           <nav className="mt-6">
             <ul>
               <li
                 className={`px-4 py-2 cursor-pointer ${
-                  selectedTab === 'Dashboard' ? 'bg-gray-200' : 'hover:bg-gray-200'
+                  selectedTab === "Dashboard"
+                    ? "bg-gray-200"
+                    : "hover:bg-gray-200"
                 }`}
-                onClick={() => handleTabClick('Dashboard')}
+                onClick={() => handleTabClick("Dashboard")}
               >
                 <div className="flex items-center gap-2">
                   <img src="/dashboardIcon.svg" alt="Icon" />
@@ -288,9 +293,11 @@ function Sidebar({ onSelectTab, goBack}) {
               </li>
               <li
                 className={`px-4 py-2 cursor-pointer ${
-                  selectedTab === 'ClientManagement' ? 'bg-gray-200' : 'hover:bg-gray-200'
+                  selectedTab === "ClientManagement"
+                    ? "bg-gray-200"
+                    : "hover:bg-gray-200"
                 }`}
-                onClick={() => handleTabClick('ClientManagement')}
+                onClick={() => handleTabClick("ClientManagement")}
               >
                 <div className="flex items-center gap-2">
                   <img src="/clientManagementIcon.svg" alt="Icon" />
@@ -299,9 +306,11 @@ function Sidebar({ onSelectTab, goBack}) {
               </li>
               <li
                 className={`px-4 py-2 cursor-pointer ${
-                  selectedTab === 'PlanManagement' ? 'bg-gray-200' : 'hover:bg-gray-200'
+                  selectedTab === "PlanManagement"
+                    ? "bg-gray-200"
+                    : "hover:bg-gray-200"
                 }`}
-                onClick={() => handleTabClick('PlanManagement')}
+                onClick={() => handleTabClick("PlanManagement")}
               >
                 <div className="flex items-center gap-2">
                   <img src="/tierManagementIcon.svg" alt="Icon" />
@@ -310,9 +319,11 @@ function Sidebar({ onSelectTab, goBack}) {
               </li>
               <li
                 className={`px-4 py-2 cursor-pointer ${
-                  selectedTab === 'APIIntegrations' ? 'bg-gray-200' : 'hover:bg-gray-200'
+                  selectedTab === "APIIntegrations"
+                    ? "bg-gray-200"
+                    : "hover:bg-gray-200"
                 }`}
-                onClick={() => handleTabClick('APIIntegrations')}
+                onClick={() => handleTabClick("APIIntegrations")}
               >
                 <div className="flex items-center gap-2">
                   <img src="/apiIntegrationIcon.svg" alt="Icon" />
@@ -321,9 +332,11 @@ function Sidebar({ onSelectTab, goBack}) {
               </li>
               <li
                 className={`px-4 py-2 cursor-pointer ${
-                  selectedTab === 'Settings' ? 'bg-gray-200' : 'hover:bg-gray-200'
+                  selectedTab === "Settings"
+                    ? "bg-gray-200"
+                    : "hover:bg-gray-200"
                 }`}
-                onClick={() => handleTabClick('Settings')}
+                onClick={() => handleTabClick("Settings")}
               >
                 <div className="flex items-center gap-2">
                   <img src="/settings.svg" alt="Icon" />

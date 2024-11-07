@@ -69,8 +69,8 @@
 
 import React, { useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
-import PlanForm from "../components/AddPlaneForm";
-import ClientInfoCard from "../components/ClientInfoCard";
+import PlanForm from "../../components/SuperAdmin/AddPlaneForm";
+import ClientInfoCard from "../../components/SuperAdmin/ClientInfoCard";
 
 function PlansTable() {
   // State to track whether the user is adding a new plan
@@ -156,11 +156,11 @@ function PlansTable() {
   return (
     <>
       {isAddingPlan ? (
-          <div className="sm:flex-1 md:flex gap-4">
-        <PlanForm handleFormCancel={handleFormCancel} />
-        <ClientInfoCard isPlan={isPlan}/>
-          </div>
-) : (
+        <div className="sm:flex-1 md:flex gap-4">
+          <PlanForm handleFormCancel={handleFormCancel} />
+          <ClientInfoCard isPlan={isPlan} />
+        </div>
+      ) : (
         <>
           <div className="mb-8">
             <h2 className="text-4xl font-semibold">Clients</h2>
@@ -172,9 +172,15 @@ function PlansTable() {
               <table className="w-full text-left">
                 <thead>
                   <tr className="border-b">
-                    <th className="py-4 px-6 text-gray-600 font-semibold">NAME</th>
-                    <th className="py-4 px-6 text-gray-600 font-semibold">DESCRIPTION</th>
-                    <th className="py-4 px-6 text-gray-600 font-semibold">USERS</th>
+                    <th className="py-4 px-6 text-gray-600 font-semibold">
+                      NAME
+                    </th>
+                    <th className="py-4 px-6 text-gray-600 font-semibold">
+                      DESCRIPTION
+                    </th>
+                    <th className="py-4 px-6 text-gray-600 font-semibold">
+                      USERS
+                    </th>
                     <th className="py-4 px-6"></th>
                   </tr>
                 </thead>
@@ -197,7 +203,10 @@ function PlansTable() {
                 </tbody>
               </table>
               <div className="text-indigo-500 bg-indigo-100 hover:bg-indigo-200 px-4 py-2 rounded-br-lg rounded-bl-lg">
-                <button onClick={handleAddNewPlan} className="flex items-center">
+                <button
+                  onClick={handleAddNewPlan}
+                  className="flex items-center"
+                >
                   <span className="text-xl mr-2">+</span> Add new Plan
                 </button>
               </div>
