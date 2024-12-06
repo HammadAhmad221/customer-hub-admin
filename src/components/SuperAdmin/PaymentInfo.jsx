@@ -3,7 +3,6 @@ import React from "react";
 const PaymentInfo = () => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg block md:flex-1">
-      {/* <h2 className="text-xl font-bold mb-4">Payment Info</h2> */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 capitalize">
         <div>
           <label className="block mb-2 text-gray-700 font-semibold">

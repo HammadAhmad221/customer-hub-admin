@@ -62,7 +62,7 @@ const DragAndDropFileUpload = ({ onFileChange }) => {
           type="file"
           id="fileInput"
           onChange={handleFileChange}
-          accept="image/*" // Ensures the file input only allows images
+          accept="image/*"
           className="hidden"
         />
       </div>

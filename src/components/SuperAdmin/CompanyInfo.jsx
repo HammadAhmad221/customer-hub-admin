@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import DragAndDropFileUpload from "./DragAndDropFileUpload";
-// import ColorToggleButton from './ColorToggleButton'
 
 const CompanyInfo = () => {
   const [isActive, setIsActive] = useState(false);
@@ -10,7 +9,6 @@ const CompanyInfo = () => {
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg flex-1">
-      {/* <h2 className="text-xl font-bold mb-4">Company Info</h2> */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label className="block mb-2 text-gray-700 font-semibold">Logo</label>
@@ -90,7 +88,6 @@ const CompanyInfo = () => {
           <label className="block mb-2 text-gray-700 font-semibold">
             Status
           </label>
-          {/* <ColorToggleButton /> */}
           <div className="flex flex-col items-start">
             <div className="flex p-1 font-semibold shadow-lg border-2 border-gray-300 bg-gray-200 rounded-lg">
               <button

@@ -5,6 +5,8 @@ import PlansOverview from "../../components/SuperAdmin/PlansOverview";
 import ClientsTable from "../../components/SuperAdmin/ClientsTable";
 import CreateEditClient from "./ClientPage";
 import PlansTable from "./PlanTable";
+import AddProduct from "../../components/SuperAdmin/addProduct";
+import AddBlog from "../../components/SuperAdmin/addBlog";
 
 function Dashboard() {
   const [selectedTab, setSelectedTab] = useState("Dashboard");
@@ -35,14 +37,18 @@ function Dashboard() {
         return <ClientsTable onAddNewClient={handleAddNewClient} />;
       case "PlanManagement":
         return (
-          <div className="overflow-x-auto">
+          // <div className="overflow-x-auto">
             <PlansTable />
-          </div>
+          // </div>
         );
       case "APIIntegrations":
         return <div>API Integrations Content</div>;
       case "Settings":
         return <div>Settings Content</div>;
+        case "Product":
+          return <AddProduct/>;
+          case "Blog":
+            return <AddBlog/>;
       default:
         return <div>Dashboard Content</div>;
     }
