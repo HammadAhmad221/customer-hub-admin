@@ -1,7 +1,15 @@
 import React, { useState } from 'react';
+import Select from "react-select";
 import axios from 'axios';
 
 const AddBlog = () => {
+  const categories = [
+    { value: "technology", label: "Technology" },
+    { value: "health", label: "Health" },
+    { value: "finance", label: "Finance" },
+    { value: "education", label: "Education" },
+  ];
+
   const [blogData, setBlogData] = useState({
     authorName: '',
     title: '',
@@ -18,6 +26,13 @@ const AddBlog = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setBlogData({ ...blogData, [name]: value });
+  };
+
+  const handleCategoryChange = (selectedOption) => {
+    setBlogData((prev) => ({
+      ...prev,
+      category: selectedOption.value,
+    }));
   };
 
   const handleFileChange = (e, setFile) => {
@@ -124,7 +139,7 @@ const AddBlog = () => {
               required
             />
           </div>
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <label className="block text-gray-700">Category</label>
             <input
               type="text"
@@ -133,7 +148,17 @@ const AddBlog = () => {
               onChange={handleChange}
               className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-red-500"
             />
-          </div>
+          </div> */}
+              <div className="mb-4">
+      <label className="block text-gray-700">Category</label>
+      <Select
+        options={categories}
+        onChange={handleCategoryChange}
+        className="basic-single"
+        classNamePrefix="select"
+        placeholder="Select a category"
+      />
+    </div>
           <div className="mb-4">
             <label className="block text-gray-700">Upload Date</label>
             <input
