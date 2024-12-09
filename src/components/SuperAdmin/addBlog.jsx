@@ -92,6 +92,16 @@ const AddBlog = () => {
       const blogImageId = await uploadFile(blogImage);
 
       await createBlog(authorImageId, blogImageId);
+      setBlogData({
+        authorName: '',
+        title: '',
+        category: '',
+        uploadDate: '',
+        views: 0,
+        description: '',
+      });
+      setAuthorImage(null);
+      setBlogImage(null);
     } catch (error) {
       alert('Failed to upload images or create blog.');
     } finally {

@@ -88,13 +88,13 @@ const handleSubmit = async (e) => {
     await createProduct(uploadedImageIds);
     // setProductData({});
         // Reset the form fields after successful product creation
-        // setProductData({
-        //   Name: '',
-        //   Description: '',
-        //   Category: '',
-        //   Price: '',
-        // });
-        // setImages([]);
+        setProductData({
+          Name: '',
+          Description: '',
+          Category: '',
+          Price: '',
+        });
+        setImages([]);
   };
 
   return (
