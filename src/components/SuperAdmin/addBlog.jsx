@@ -4,10 +4,15 @@ import axios from 'axios';
 
 const AddBlog = () => {
   const categories = [
-    { value: "technology", label: "Technology" },
-    { value: "health", label: "Health" },
-    { value: "finance", label: "Finance" },
-    { value: "education", label: "Education" },
+    { value: "Plumbing", label: "Plumbing" },
+    { value: "HVAC", label: "HVAC" },
+    { value: "ELECTRICIANS", label: "ELECTRICIANS" },
+    { value: "SOLAR", label: "SOLAR" },
+    { value: "ROOFING", label: "ROOFING" },
+    { value: "HOME IMPROVEMENT", label: "HOME IMPROVEMENT" },
+    { value: "DAMP PROOFING", label: "DAMP PROOFING" },
+    { value: "OTHER HOME SERVICE BUSINESS", label: "OTHER HOME SERVICE BUSINESS" },
+
   ];
 
   const [blogData, setBlogData] = useState({
