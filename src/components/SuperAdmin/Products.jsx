@@ -176,7 +176,7 @@ function ProductTable({ onAddNewProduct }) {
   //   (currentPage - 1) * entriesPerPage,
   //   currentPage * entriesPerPage
   // );
-  const totalPages = Math.max(Math.ceil(products.length / entriesPerPage), 1);
+  const totalPages = Math.max(Math.ceil(products?.length / entriesPerPage), 1);
 const displayedProducts = Array.isArray(products)
   ? products.slice((currentPage - 1) * entriesPerPage, currentPage * entriesPerPage)
   : [];
