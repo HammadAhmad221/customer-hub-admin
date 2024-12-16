@@ -171,11 +171,15 @@ function ProductTable({ onAddNewProduct }) {
   const [selectedProduct, setSelectedProduct] = useState(null); // State to store the selected product for editing
   const [isFormOpen, setIsFormOpen] = useState(false); // State to manage form visibility
 
-  const totalPages = Math.ceil(products?.length / entriesPerPage);
-  const displayedProducts = products.slice(
-    (currentPage - 1) * entriesPerPage,
-    currentPage * entriesPerPage
-  );
+  // const totalPages = Math.ceil(products?.length / entriesPerPage);
+  // const displayedProducts = products.slice(
+  //   (currentPage - 1) * entriesPerPage,
+  //   currentPage * entriesPerPage
+  // );
+  const totalPages = Math.max(Math.ceil(products.length / entriesPerPage), 1);
+const displayedProducts = Array.isArray(products)
+  ? products.slice((currentPage - 1) * entriesPerPage, currentPage * entriesPerPage)
+  : [];
 
   // Fetch products from API
   useEffect(() => {
