@@ -164,7 +164,7 @@ const AddBlog = () => {
               className="w-full px-3 py-2 border border-gray-300 rounded focus:ring-2 focus:ring-red-500"
             />
           </div> */}
-              <div className="mb-4">
+    <div className="mb-4">
       <label className="block text-gray-700">Category</label>
       <Select
         options={categories}

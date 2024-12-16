@@ -7,22 +7,36 @@ import CreateEditClient from "./ClientPage";
 import PlansTable from "./PlanTable";
 import AddProduct from "../../components/SuperAdmin/addProduct";
 import AddBlog from "../../components/SuperAdmin/addBlog";
+import ProductTable from "../../components/SuperAdmin/Products";
+import AddEditProduct from "../../components/SuperAdmin/addProduct";
 
 function Dashboard() {
   const [selectedTab, setSelectedTab] = useState("Dashboard");
   const [isCreatingClient, setIsCreatingClient] = useState(false);
+  const [isCreatingProduct, setIsCreatingProduct] = useState(false);
+
 
   const handleAddNewClient = () => {
     setIsCreatingClient(true);
   };
 
+  const handleAddNewProduct = () => {
+    setIsCreatingProduct(true);
+  };
+
   const handleGoBackToClientList = () => {
     setIsCreatingClient(false);
+  };
+  const handleGoBackToProductList = () => {
+    setIsCreatingProduct(false);
   };
 
   const renderContent = () => {
     if (isCreatingClient) {
       return <CreateEditClient goBack={handleGoBackToClientList} />;
+    }
+    if (isCreatingProduct) {
+      return <AddEditProduct goBack={handleGoBackToProductList}/>;
     }
 
     switch (selectedTab) {
@@ -46,7 +60,7 @@ function Dashboard() {
       case "Settings":
         return <div>Settings Content</div>;
         case "Product":
-          return <AddProduct/>;
+          return <ProductTable onAddNewProduct={handleAddNewProduct}/>;
           case "Blog":
             return <AddBlog/>;
       default:

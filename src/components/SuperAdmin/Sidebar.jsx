@@ -116,7 +116,7 @@ function Sidebar({ onSelectTab, goBack }) {
               >
                 <div className="flex items-center gap-2">
                   <img src="/clientManagementIcon.svg" alt="Icon" />
-                  {!collapsed && <span>Add Product</span>}
+                  {!collapsed && <span>Products</span>}
                 </div>
               </li>
               <li
