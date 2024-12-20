@@ -5,15 +5,19 @@ import PlansOverview from "../../components/SuperAdmin/PlansOverview";
 import ClientsTable from "../../components/SuperAdmin/ClientsTable";
 import CreateEditClient from "./ClientPage";
 import PlansTable from "./PlanTable";
-import AddProduct from "../../components/SuperAdmin/addProduct";
-import AddBlog from "../../components/SuperAdmin/addBlog";
+// import AddProduct from "../../components/SuperAdmin/addProduct";
+// import AddBlog from "../../components/SuperAdmin/addBlog";
 import ProductTable from "../../components/SuperAdmin/Products";
 import AddEditProduct from "../../components/SuperAdmin/addProduct";
+import BlogTable from "../../components/SuperAdmin/Blogs";
+import AddEditBlog from "../../components/SuperAdmin/addBlog";
+import PurchaseHistory from "../../components/SuperAdmin/PurchaseHistory";
 
 function Dashboard() {
   const [selectedTab, setSelectedTab] = useState("Dashboard");
   const [isCreatingClient, setIsCreatingClient] = useState(false);
   const [isCreatingProduct, setIsCreatingProduct] = useState(false);
+  const [isCreatingBlog, setIsCreatingBlog] = useState(false);
 
 
   const handleAddNewClient = () => {
@@ -24,11 +28,18 @@ function Dashboard() {
     setIsCreatingProduct(true);
   };
 
+  const handleAddNewBlog = () => {
+    setIsCreatingBlog(true);
+  };
+
   const handleGoBackToClientList = () => {
     setIsCreatingClient(false);
   };
   const handleGoBackToProductList = () => {
     setIsCreatingProduct(false);
+  };
+  const handleGoBackToBlogList = () => {
+    setIsCreatingBlog(false);
   };
 
   const renderContent = () => {
@@ -37,6 +48,9 @@ function Dashboard() {
     }
     if (isCreatingProduct) {
       return <AddEditProduct goBack={handleGoBackToProductList}/>;
+    }
+    if (isCreatingBlog) {
+      return <AddEditBlog goBack={handleGoBackToBlogList}/>;
     }
 
     switch (selectedTab) {
@@ -62,7 +76,9 @@ function Dashboard() {
         case "Product":
           return <ProductTable onAddNewProduct={handleAddNewProduct}/>;
           case "Blog":
-            return <AddBlog/>;
+            return <BlogTable onAddNewBlog={handleAddNewBlog}/>;
+            case "PurchaseHistory":
+              return <PurchaseHistory onAddNewBlog={handleAddNewBlog}/>;
       default:
         return <div>Dashboard Content</div>;
     }
@@ -70,7 +86,7 @@ function Dashboard() {
 
   return (
     <div className="flex bg-gray-100 h-screen overflow-hidden">
-      <Sidebar onSelectTab={setSelectedTab} goBack={handleGoBackToClientList} />
+      <Sidebar onSelectTab={setSelectedTab} goBack={handleGoBackToClientList} goBackProduct={handleGoBackToProductList} goBackBlog={handleGoBackToBlogList}/>
       <div
         className={`${
           isCreatingClient ? "pt-0" : "pl-10 lg:pt-32 pt-10 lg:pr-16 pr-10"

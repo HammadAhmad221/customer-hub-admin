@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Sidebar({ onSelectTab, goBack }) {
+function Sidebar({ onSelectTab, goBack, goBackProduct, goBackBlog }) {
   const [isOpen, setIsOpen] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const [selectedTab, setSelectedTab] = useState("Dashboard");
@@ -15,6 +15,8 @@ function Sidebar({ onSelectTab, goBack }) {
 
   const handleTabClick = (tab) => {
     goBack();
+    goBackProduct();
+    goBackBlog();
     setSelectedTab(tab);
     onSelectTab(tab);
     if (isOpen) setIsOpen(false);
@@ -129,7 +131,20 @@ function Sidebar({ onSelectTab, goBack }) {
               >
                 <div className="flex items-center gap-2">
                   <img src="/tierManagementIcon.svg" alt="Icon" />
-                  {!collapsed && <span>Add Blog</span>}
+                  {!collapsed && <span>Blogs</span>}
+                </div>
+              </li>
+              <li
+                className={`px-4 py-2 cursor-pointer ${
+                  selectedTab === "PurchaseHistory"
+                    ? "bg-gray-200"
+                    : "hover:bg-gray-200"
+                }`}
+                onClick={() => handleTabClick("PurchaseHistory")}
+              >
+                <div className="flex items-center gap-2">
+                  <img src="/tierManagementIcon.svg" alt="Icon" />
+                  {!collapsed && <span>PurchaseHistory</span>}
                 </div>
               </li>
               <li
